@@ -2,11 +2,15 @@
 
 A Python project set up for learning and development.
 
+**Python Version:** 3.12+ (recommended)
+
 ## Setup
 
 1. Create a virtual environment:
 
    ```bash
+   python3.12 -m venv venv
+   # or if python3.12 is your default:
    python3 -m venv venv
    ```
 
