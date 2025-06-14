@@ -14,10 +14,10 @@ def demo_text():
     print(f"Uppercase: {message.upper()}")
     print(f"Words: {message.split()}")
 
-    test = "it does'nt"
-    print(test)
-    test = "first line. \nSecond line. \nThird line."
-    print(test)
+    text = "it does'nt"
+    print(text)
+    text = "first line. \nSecond line. \nThird line."
+    print(text)
     print(r"C:\some\name")
     print(
         """\
@@ -31,3 +31,21 @@ def demo_text():
     print("Py" * 3)
     print("Py" + "thon")
     print("Py" * 3)
+    text = "python"
+    print(f"text: {text}")
+    print(f"text[0]: {text[0]}")
+    print(f"text[2:5]: {text[2:5]}")
+    print(f"text[:2]: {text[:2]}")
+    print(f"text[2:]: {text[2:]}")
+    print(f"text[-2:]: {text[-2:]}")
+    print(f"text[:-2]: {text[:-2]}")
+    print(f"text[::2]: {text[::2]}")
+    print(f"text[::-1]: {text[::-1]}")
+    print(text.upper())
+    # replace it to create a new str, not modify the original one
+    print(text.replace("python", "java"))
+    name = "John"
+    age = 30
+    print(f"name: {name}, age: {age}")
+    print("hello, {}".format(name))
+    print(f"hello, {name}, you are {age} years old".format(name=name, age=age))
