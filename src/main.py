@@ -5,6 +5,7 @@ Main entry point for the Python Learning project.
 
 import os
 from dotenv import load_dotenv
+from .text import demo_text
 
 # Load environment variables
 load_dotenv()
@@ -29,19 +30,7 @@ def main():
 
 def demo_function():
     """A demo function to show basic Python functionality."""
-    print("This is a demo function!")
-
-    # Example: Working with lists
-    fruits = ["apple", "banana", "orange", "grape"]
-    print(f"Fruits: {fruits}")
-
-    # Example: List comprehension
-    fruit_lengths = [len(fruit) for fruit in fruits]
-    print(f"Fruit lengths: {fruit_lengths}")
-
-    # Example: Dictionary
-    fruit_info = {fruit: len(fruit) for fruit in fruits}
-    print(f"Fruit info: {fruit_info}")
+    demo_text()
 
 
 if __name__ == "__main__":

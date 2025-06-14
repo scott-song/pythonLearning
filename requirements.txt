@@ -1,6 +1,7 @@
 # Core packages
 requests==2.31.0
 python-dotenv==1.0.0
+watchdog==6.0.0
 
 # Development tools
 pytest==7.4.3

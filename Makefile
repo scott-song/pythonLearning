@@ -21,6 +21,10 @@ install: venv
 run:
 	$(PYTHON) src/main.py
 
+# Watch for changes and auto-run
+watch:
+	$(PYTHON) watch.py
+
 # Run tests
 test:
 	$(PYTHON) -m pytest tests/ -v
