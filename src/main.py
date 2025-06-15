@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 from text import demo_text
 from list import demo_list
+from flow import demo_flow
 
 # Load environment variables
 load_dotenv()
@@ -33,6 +34,7 @@ def demo_function():
     """A demo function to show basic Python functionality."""
     demo_text()
     demo_list()
+    demo_flow()
 
 
 if __name__ == "__main__":
