@@ -1,0 +1,84 @@
+[flake8]
+# Maximum line length
+max-line-length = 88
+
+# List of files and directories to exclude from checks
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    .env,
+    .pytest_cache,
+    .mypy_cache,
+    build,
+    dist,
+    *.egg-info
+
+# Error codes to ignore
+ignore =
+    # E203: whitespace before ':' (conflicts with black)
+    E203,
+    # W503: line break before binary operator (conflicts with black)
+    W503,
+    # E501: line too long (handled by black)
+    E501,
+    # D100: Missing docstring in public module
+    D100,
+    # D101: Missing docstring in public class
+    D101,
+    # D102: Missing docstring in public method
+    D102,
+    # D103: Missing docstring in public function
+    D103
+
+# Error codes to select (leave empty to check all)
+select =
+    # Pyflakes
+    F,
+    # Pycodestyle errors
+    E,
+    # Pycodestyle warnings
+    W,
+    # McCabe complexity
+    C,
+    # flake8-bugbear
+    B,
+    # flake8-import-order
+    I
+
+# Maximum McCabe complexity
+max-complexity = 10
+
+# Files that require docstrings
+docstring-convention = google
+
+# Per-file ignores
+per-file-ignores =
+    # Tests don't need docstrings
+    tests/*:D100,D101,D102,D103,D104,
+    # __init__.py files don't need docstrings
+    __init__.py:D104,
+    # Scripts can have more relaxed rules
+    scripts/*:D100,D103
+
+# Maximum number of arguments for function
+max-arguments = 5
+
+# Show source code for each error
+show-source = True
+
+# Show pep8 violation statistics
+statistics = True
+
+# Count errors and warnings
+count = True
+
+# Import order settings
+import-order-style = google
+
+# Application import names (adjust for your project)
+application-import-names = src
+
+# Inline quotes preference
+inline-quotes = double

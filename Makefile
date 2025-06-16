@@ -35,7 +35,15 @@ format:
 
 # Check code style
 lint:
-	$(PYTHON) -m flake8 src/ tests/ --max-line-length=88
+	$(PYTHON) -m flake8 src/ tests/
+
+# Check specific file
+lint-file:
+	$(PYTHON) -m flake8 $(FILE)
+
+# Show flake8 version and plugins
+lint-info:
+	$(PYTHON) -m flake8 --version
 
 # Type checking
 typecheck:
@@ -59,9 +67,11 @@ help:
 	@echo "  test      - Run tests"
 	@echo "  format    - Format code with black"
 	@echo "  lint      - Check code style with flake8"
+	@echo "  lint-file - Check specific file (usage: make lint-file FILE=path/to/file.py)"
+	@echo "  lint-info - Show flake8 version and available plugins"
 	@echo "  typecheck - Run type checking with mypy"
 	@echo "  dev       - Complete development setup"
 	@echo "  clean     - Clean up generated files"
 	@echo "  help      - Show this help message"
 
-.PHONY: venv install run test format lint typecheck clean dev help 
+.PHONY: venv install run test format lint typecheck clean dev help
