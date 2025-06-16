@@ -30,7 +30,21 @@ ignore =
     # D102: Missing docstring in public method
     D102,
     # D103: Missing docstring in public function
-    D103
+    D103,
+    # D200: One-line docstring should fit on one line with quotes
+    D200,
+    # D401: First line should be in imperative mood
+    D401,
+    # D105: Missing docstring in magic method
+    D105,
+    # D107: Missing docstring in __init__
+    D107,
+    # I100: Import statements are in the wrong order
+    I100,
+    # I201: Missing newline between import groups
+    I201,
+    # I202: Additional newline in a group of imports
+    I202
 
 # Error codes to select (leave empty to check all)
 select =
@@ -43,9 +57,7 @@ select =
     # McCabe complexity
     C,
     # flake8-bugbear
-    B,
-    # flake8-import-order
-    I
+    B
 
 # Maximum McCabe complexity
 max-complexity = 10
@@ -84,6 +96,3 @@ application-import-names = dataStructure,flow,function,lamb,list,text
 
 # Inline quotes preference
 inline-quotes = double
-
-# Extended ignore codes
-extend-ignore = E203, W503, D200, D401, I100, I201, I202, D105, D107
