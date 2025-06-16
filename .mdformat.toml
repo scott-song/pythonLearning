@@ -1,0 +1,8 @@
+# Line wrap at 100 characters
+wrap = 100
+
+# Line ending style (auto, lf, or crlf)
+end_of_line = "lf"
+
+# Heading numbering style
+number = false

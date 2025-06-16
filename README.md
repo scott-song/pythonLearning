@@ -14,13 +14,14 @@ A Python project set up for learning and development.
    python3 -m venv venv
    ```
 
-2. Activate the virtual environment:
+1. Activate the virtual environment:
 
    ```bash
    source venv/bin/activate  # On macOS/Linux
    ```
 
-3. Install dependencies:
+1. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```

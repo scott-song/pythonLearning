@@ -12,6 +12,7 @@ flake8-import-order==0.18.2
 flake8-bugbear==24.12.12
 mypy==1.8.0
 pre-commit==3.6.0
+mdformat==0.7.17
 
 # Data science (optional - uncomment if needed)
 # numpy==1.24.3

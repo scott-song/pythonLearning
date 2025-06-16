@@ -24,5 +24,11 @@
   "python.linting.prospectorEnabled": false,
   "python.linting.pycodestyleEnabled": false,
   "python.linting.pyflakesEnabled": false,
-  "python.linting.pylintUseMinimalCheckers": false
+  "python.linting.pylintUseMinimalCheckers": false,
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100]
+  }
 }

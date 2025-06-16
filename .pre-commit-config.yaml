@@ -28,3 +28,9 @@ repos:
     hooks:
       - id: isort
         args: [--profile=black, --line-length=88]
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+      - id: mdformat
+        args: [--wrap=100]

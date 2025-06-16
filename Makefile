@@ -49,6 +49,14 @@ lint-info:
 typecheck:
 	$(PYTHON) -m mypy src/
 
+# Markdown formatting and linting
+format-md:
+	$(PYTHON) -m mdformat *.md --wrap 100
+
+# Check markdown formatting
+check-md:
+	$(PYTHON) -m mdformat --check *.md --wrap 100
+
 # Clean up
 clean:
 	rm -rf $(VENV)
@@ -70,6 +78,8 @@ help:
 	@echo "  lint-file - Check specific file (usage: make lint-file FILE=path/to/file.py)"
 	@echo "  lint-info - Show flake8 version and available plugins"
 	@echo "  typecheck - Run type checking with mypy"
+	@echo "  format-md - Format markdown files"
+	@echo "  check-md  - Check markdown formatting"
 	@echo "  dev       - Complete development setup"
 	@echo "  clean     - Clean up generated files"
 	@echo "  help      - Show this help message"
