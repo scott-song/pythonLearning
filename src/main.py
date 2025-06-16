@@ -4,9 +4,12 @@ Main entry point for the Python Learning project.
 """
 
 import os
+import sys
 
 from dotenv import load_dotenv
 
+import dataStructure as ds
+from dataStructure import demo_data_struct
 from flow import demo_flow
 from function import demo_func
 from lamb import demo_lambda
@@ -42,7 +45,11 @@ def demo_function():
     print("demo_func")
     demo_func()
     demo_lambda()
+    demo_data_struct()
 
 
 if __name__ == "__main__":
     main()
+    print(sys.builtin_module_names)
+    print(sys.path)
+    print(dir(ds))

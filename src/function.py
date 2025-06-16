@@ -1,22 +1,18 @@
 def demo_func():
-    """A demo function to show basic Python functionality."""
-    print("demo_function")
-    parrot(1000)
-    parrot(voltage=1000)
-    parrot(voltage=1000000, action="VOOOOOM")
-    parrot(action="VOOOOOM", voltage=1000000)
-    parrot("a million", "bereft of life", "jump")
-    parrot("a thousand", state="pushing up the daisies")
-    cheeseshop(
-        "Limburger",
-        "It's very runny, sir.",
-        "It's really very, VERY runny, sir.",
-        shopkeeper="Michael Palin",
-        client="John Cleese",
-        sketch="Cheese Shop Sketch",
-    )
-    demo_unpack()
-    demo_unpack_dict()
+    """Demo function for function examples."""
+    print("demo_func - Function examples")
+
+    def greet(name):
+        return f"Hello, {name}!"
+
+    print(greet("World"))
+
+    # Function with default parameter
+    def power(base, exponent=2):
+        return base**exponent
+
+    print(f"2^3 = {power(2, 3)}")
+    print(f"5^2 = {power(5)}")
 
 
 def parrot(voltage, state="a stiff", action="voom", type="Norwegian Blue"):

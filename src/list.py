@@ -1,6 +1,19 @@
 def demo_list():
-    demo_list_number()
-    demo_list_str()
+    """Demo function for list examples."""
+    print("demo_list - List examples")
+
+    # Basic list operations
+    fruits = ["apple", "banana", "cherry"]
+    print(f"Fruits: {fruits}")
+
+    # List methods
+    fruits.append("date")
+    print(f"After append: {fruits}")
+
+    # List comprehension
+    numbers = [1, 2, 3, 4, 5]
+    squares = [x**2 for x in numbers]
+    print(f"Squares: {squares}")
 
 
 def demo_list_number():

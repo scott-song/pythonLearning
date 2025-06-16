@@ -4,8 +4,23 @@ Text utilities for the Python Learning project.
 
 
 def demo_text():
-    """Demo function to show text processing."""
-    print("This is a demo text function!")
+    """Demo function for text/string examples."""
+    print("demo_text - String examples")
+
+    # String operations
+    text = "Hello, World!"
+    print(f"Original: {text}")
+    print(f"Upper: {text.upper()}")
+    print(f"Lower: {text.lower()}")
+
+    # String formatting
+    name = "Python"
+    version = 3.12
+    print(f"Welcome to {name} {version}!")
+
+    # String methods
+    words = text.split(", ")
+    print(f"Split words: {words}")
 
     # Example: Working with strings
     message = "Hello, Python Learning!"

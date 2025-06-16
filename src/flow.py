@@ -2,6 +2,20 @@ from enum import Enum
 
 
 def demo_flow():
+    """Demo function for control flow examples."""
+    print("demo_flow - Control flow examples")
+
+    # If-else example
+    x = 10
+    if x > 5:
+        print(f"{x} is greater than 5")
+    else:
+        print(f"{x} is not greater than 5")
+
+    # For loop example
+    for i in range(3):
+        print(f"Loop iteration: {i}")
+
     demo_flow_if()
     demo_flow_for()
     demo_flow_range()
