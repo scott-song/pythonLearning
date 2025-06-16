@@ -60,7 +60,9 @@ per-file-ignores =
     # __init__.py files don't need docstrings
     __init__.py:D104,
     # Scripts can have more relaxed rules
-    scripts/*:D100,D103
+    scripts/*:D100,D103,
+    # Import order conflicts
+    __init__.py:F401
 
 # Maximum number of arguments for function
 max-arguments = 5
@@ -75,10 +77,13 @@ statistics = True
 count = True
 
 # Import order settings
-import-order-style = google
+import-order-style = pep8
 
 # Application import names (adjust for your project)
-application-import-names = src
+application-import-names = dataStructure,flow,function,lamb,list,text
 
 # Inline quotes preference
 inline-quotes = double
+
+# Extended ignore codes
+extend-ignore = E203, W503, D200, D401, I100, I201, I202
