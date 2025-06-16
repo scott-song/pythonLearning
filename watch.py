@@ -4,11 +4,12 @@ Auto-reload script for the Python Learning Project.
 Watches for file changes and automatically runs the application.
 """
 
-import sys
 import subprocess
+import sys
 import time
-from watchdog.observers import Observer
+
 from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 
 class CodeChangeHandler(FileSystemEventHandler):
@@ -24,7 +25,7 @@ class CodeChangeHandler(FileSystemEventHandler):
             return
 
         # Only watch Python files
-        if not str(event.src_path).endswith('.py'):
+        if not str(event.src_path).endswith(".py"):
             return
 
         # Debounce rapid changes
@@ -37,15 +38,18 @@ class CodeChangeHandler(FileSystemEventHandler):
 
     def run_application(self):
         """Run the main application."""
-        print("\n" + "="*50)
+        print("\n" + "=" * 50)
         print("🔄 File changed! Running application...")
-        print("="*50)
+        print("=" * 50)
 
         try:
             # Run the main application
-            result = subprocess.run([
-                sys.executable, "src/main.py"
-            ], capture_output=True, text=True, timeout=30)
+            result = subprocess.run(
+                [sys.executable, "src/main.py"],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
 
             if result.returncode == 0:
                 print("✅ Application ran successfully!")
@@ -63,7 +67,7 @@ class CodeChangeHandler(FileSystemEventHandler):
         except Exception as e:
             print(f"💥 Error running application: {e}")
 
-        print("="*50)
+        print("=" * 50)
         print("👀 Watching for changes... (Ctrl+C to stop)")
 
 

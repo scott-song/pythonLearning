@@ -2,9 +2,11 @@
 Tests for the main module.
 """
 
-import pytest
-import sys
 import os
+import sys
+
+import pytest
+
 from src.main import demo_function
 
 # Add src to path for imports

@@ -4,10 +4,14 @@ Main entry point for the Python Learning project.
 """
 
 import os
+
 from dotenv import load_dotenv
-from text import demo_text
-from list import demo_list
+
 from flow import demo_flow
+from function import demo_func
+from lamb import demo_lambda
+from list import demo_list
+from text import demo_text
 
 # Load environment variables
 load_dotenv()
@@ -35,6 +39,9 @@ def demo_function():
     demo_text()
     demo_list()
     demo_flow()
+    print("demo_func")
+    demo_func()
+    demo_lambda()
 
 
 if __name__ == "__main__":

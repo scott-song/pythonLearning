@@ -51,4 +51,3 @@ def demo_list_str():
     print(f"letters[::2] is {letters[::2]}")
     letters[2:5] = []
     print(letters)
-
