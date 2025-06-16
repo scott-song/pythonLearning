@@ -67,29 +67,39 @@ class CodeChangeHandler(FileSystemEventHandler):
         except Exception as e:
             print(f"💥 Error running application: {e}")
 
+        print("=" * 50)
+        print("👀 Watching for changes... (Ctrl+C to stop)")
+
 
 def main() -> None:
-    """Main entry point."""
-    path = "."
+    """Main function to start the file watcher."""
+    print("🚀 Starting Python Learning Project Auto-Reload")
+    print("👀 Watching for changes in src/ and tests/ directories...")
+    print("Press Ctrl+C to stop\n")
+
+    # Create event handler and observer
     event_handler = CodeChangeHandler()
     observer = Observer()
-    observer.schedule(event_handler, path, recursive=True)
+
+    # Watch src and tests directories
+    observer.schedule(event_handler, "src", recursive=True)
+    observer.schedule(event_handler, "tests", recursive=True)
+
+    # Start watching
     observer.start()
 
-    print("\n" + "=" * 50)
-    print("👀 Watching for file changes...")
-    print("=" * 50 + "\n")
+    # Run the application once at startup
+    event_handler.run_application()
 
     try:
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
+        print("\n\n🛑 Stopping file watcher...")
         observer.stop()
-        print("\n" + "=" * 50)
-        print("👋 Stopping file watcher...")
-        print("=" * 50 + "\n")
 
     observer.join()
+    print("👋 Auto-reload stopped!")
 
 
 if __name__ == "__main__":

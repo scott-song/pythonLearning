@@ -1,4 +1,4 @@
-def demo_list():
+def demo_list() -> None:
     """Demo function for list examples."""
     print("demo_list - List examples")
 
@@ -16,7 +16,7 @@ def demo_list():
     print(f"Squares: {squares}")
 
 
-def demo_list_number():
+def demo_list_number() -> None:
     squares = [1, 4, 9, 16, 25]
     print(squares)
     print(squares[0])
@@ -42,7 +42,7 @@ def demo_list_number():
     print(squares)
 
 
-def demo_list_str():
+def demo_list_str() -> None:
     rgb = ["red", "green", "blue"]
     rgba = rgb.copy()
     print(rgba)

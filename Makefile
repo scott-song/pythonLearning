@@ -23,7 +23,7 @@ run:
 
 # Watch for changes and auto-run
 watch:
-	$(PYTHON) watch.py
+	$(PYTHON) scripts/watch.py
 
 # Run tests
 test:
@@ -31,11 +31,11 @@ test:
 
 # Format code
 format:
-	$(PYTHON) -m black src/ tests/
+	$(PYTHON) -m black src/ tests/ scripts/
 
 # Check code style
 lint:
-	$(PYTHON) -m flake8 src/ tests/
+	$(PYTHON) -m flake8 src/ tests/ scripts/
 
 # Check specific file
 lint-file:
@@ -47,7 +47,7 @@ lint-info:
 
 # Type checking
 typecheck:
-	$(PYTHON) -m mypy src/
+	$(PYTHON) -m mypy src/ scripts/
 
 # Markdown formatting and linting
 format-md:

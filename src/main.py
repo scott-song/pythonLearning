@@ -8,7 +8,6 @@ import sys
 
 from dotenv import load_dotenv
 
-import dataStructure as ds
 from dataStructure import demo_data_struct
 from flow import demo_flow
 from function import demo_func
@@ -20,7 +19,7 @@ from text import demo_text
 load_dotenv()
 
 
-def main():
+def main() -> None:
     """Main function to run the application."""
     print("Welcome to your Python Learning Project!")
     print("=" * 40)
@@ -37,7 +36,7 @@ def main():
     demo_function()
 
 
-def demo_function():
+def demo_function() -> None:
     """A demo function to show basic Python functionality."""
     demo_text()
     demo_list()
@@ -52,4 +51,3 @@ if __name__ == "__main__":
     main()
     print(sys.builtin_module_names)
     print(sys.path)
-    print(dir(ds))

@@ -30,7 +30,7 @@ def demo_list() -> None:
 
 
 # demo stack using Lists
-def demo_stack():
+def demo_stack() -> None:
     print("demo_stack")
     stack = [3, 4, 5]
     stack.append(6)
@@ -41,7 +41,7 @@ def demo_stack():
 
 
 # demo queue using Lists
-def demo_queue():
+def demo_queue() -> None:
     print("demo_queue")
     queue = [3, 4, 5]
     queue.append(6)
@@ -52,7 +52,7 @@ def demo_queue():
 
 
 # demo dict
-def demo_dict():
+def demo_dict() -> None:
     print("demo_dictsss")
     data_dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
     print(data_dict)
@@ -66,7 +66,7 @@ def demo_dict():
     print(sorted(data_dict.keys()))
 
 
-def demo_list_comprehension():
+def demo_list_comprehension() -> None:
     squares = list(map(lambda x: x * x, range(10)))
     print(f"squares: {squares}")
     squares = [x**3 for x in range(10)]
@@ -74,7 +74,7 @@ def demo_list_comprehension():
     print([str(round(pi, i)) for i in range(1, 6)])
 
 
-def demo_list_nested_comprehension():
+def demo_list_nested_comprehension() -> None:
     matrix = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
@@ -85,7 +85,7 @@ def demo_list_nested_comprehension():
     print(*list(zip(*matrix)))
 
 
-def demo_tuple():
+def demo_tuple() -> None:
     print("demo_tuple")
     t = 12345, 54321, "hello!"
     print(t)
@@ -99,7 +99,7 @@ def demo_tuple():
     print(v)
 
 
-def demo_set():
+def demo_set() -> None:
     print("demo_set")
     # Intentionally showing duplicates to demonstrate set behavior
     basket = {"apple", "orange", "pear", "banana"}  # noqa: B033

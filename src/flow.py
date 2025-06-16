@@ -1,7 +1,8 @@
 from enum import Enum
+from typing import List
 
 
-def demo_flow():
+def demo_flow() -> None:
     """Demo function for control flow examples."""
     print("demo_flow - Control flow examples")
 
@@ -33,7 +34,7 @@ def demo_flow():
     print(fib2(1000000))
 
 
-def demo_flow_if():
+def demo_flow_if() -> None:
     """Demo function for if statements and control flow."""
     print("demo_flow_if")
     x = -1
@@ -48,7 +49,7 @@ def demo_flow_if():
         print("More")
 
 
-def demo_flow_for():
+def demo_flow_for() -> None:
     """Demo function for for loops."""
     print("demo_flow_for")
     words = ["cat", "window", "defenestrate"]
@@ -56,7 +57,7 @@ def demo_flow_for():
         print(w, len(w))
 
 
-def demo_flow_range():
+def demo_flow_range() -> None:
     """Demo function for range() usage."""
     print("demo_flow_range")
     _demo_basic_ranges()
@@ -64,7 +65,7 @@ def demo_flow_range():
     _demo_break_continue()
 
 
-def _demo_basic_ranges():
+def _demo_basic_ranges() -> None:
     """Demonstrate basic range usage patterns."""
     # Basic range - from 0 to 4
     print("\nBasic range(5):")
@@ -91,7 +92,7 @@ def _demo_basic_ranges():
     print()
 
 
-def _demo_range_with_lists():
+def _demo_range_with_lists() -> None:
     """Demonstrate range usage with lists."""
     # Converting range to list
     print("\nConverting range to list:")
@@ -105,7 +106,7 @@ def _demo_range_with_lists():
         print(f"Index {i}: {fruits[i]}")
 
 
-def _demo_break_continue():
+def _demo_break_continue() -> None:
     """Demonstrate break and continue in loops."""
     # for break
     for n in range(2, 10):
@@ -125,7 +126,7 @@ def _demo_break_continue():
 
 
 # HTTP error handling with if-elif
-def http_error(status):
+def http_error(status: int) -> str:
     """Handle HTTP error status codes."""
     if status == 400:
         return "bad request"
@@ -140,23 +141,23 @@ def http_error(status):
 
 
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x: float, y: float) -> None:
         self.x = x
         self.y = y
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"({self.x}, {self.y})"
 
-    def __add__(self, other):
+    def __add__(self, other: "Point") -> "Point":
         return Point(self.x + other.x, self.y + other.y)
 
-    def __mul__(self, other):
+    def __mul__(self, other: "Point") -> "Point":
         return Point(self.x * other.x, self.y * other.y)
 
-    def __truediv__(self, other):
+    def __truediv__(self, other: "Point") -> "Point":
         return Point(self.x / other.x, self.y / other.y)
 
-    def where_is(self):
+    def where_is(self) -> None:
         """Determine where the point is located."""
         if self.x == 0 and self.y == 0:
             print("origin")
@@ -178,12 +179,12 @@ class Color(Enum):
     BLUE = "blue"
 
 
-def print_color(color: Color):
+def print_color(color: Color) -> None:
     """Print the color."""
     print(color)
 
 
-def fib(n):
+def fib(n: int) -> None:
     """Fibonacci sequence generator."""
     print("Fibonacci sequence:")
     a, b = 0, 1
@@ -193,7 +194,7 @@ def fib(n):
     print()
 
 
-def fib2(n):
+def fib2(n: int) -> List[int]:
     """Fibonacci sequence generator."""
     result = []
     a, b = 0, 1

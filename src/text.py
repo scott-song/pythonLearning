@@ -3,7 +3,7 @@ Text utilities for the Python Learning project.
 """
 
 
-def demo_text():
+def demo_text() -> None:
     """Demo function for text/string examples."""
     print("demo_text - String examples")
 
