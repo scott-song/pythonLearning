@@ -1,5 +1,5 @@
 """
-Python Learning Project - Source Package
+Python Learning Project - Source Package.
 
 A project for learning Python development best practices.
 """

@@ -1,7 +1,10 @@
+"""Data structure demonstrations and examples."""
+
 from math import pi
 
 
 def demo_data_struct() -> None:
+    """Demonstrate various data structures in Python."""
     print("demo_data_struct")
     demo_list()
     demo_stack()
@@ -15,6 +18,7 @@ def demo_data_struct() -> None:
 
 # demo list
 def demo_list() -> None:
+    """Demonstrate list operations and methods."""
     print("demo_list")
     fruits = ["orange", "apple", "pear", "banana", "kiwi", "apple", "banan"]
     print(fruits)
@@ -31,6 +35,7 @@ def demo_list() -> None:
 
 # demo stack using Lists
 def demo_stack() -> None:
+    """Demonstrate stack operations using Lists."""
     print("demo_stack")
     stack = [3, 4, 5]
     stack.append(6)
@@ -42,6 +47,7 @@ def demo_stack() -> None:
 
 # demo queue using Lists
 def demo_queue() -> None:
+    """Demonstrate queue operations using Lists."""
     print("demo_queue")
     queue = [3, 4, 5]
     queue.append(6)
@@ -53,6 +59,7 @@ def demo_queue() -> None:
 
 # demo dict
 def demo_dict() -> None:
+    """Demonstrate dictionary operations and methods."""
     print("demo_dictsss")
     data_dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
     print(data_dict)
@@ -67,6 +74,7 @@ def demo_dict() -> None:
 
 
 def demo_list_comprehension() -> None:
+    """Demonstrate list comprehension syntax and usage."""
     squares = list(map(lambda x: x * x, range(10)))
     print(f"squares: {squares}")
     squares = [x**3 for x in range(10)]
@@ -75,6 +83,7 @@ def demo_list_comprehension() -> None:
 
 
 def demo_list_nested_comprehension() -> None:
+    """Demonstrate nested list comprehension syntax and usage."""
     matrix = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
@@ -86,6 +95,7 @@ def demo_list_nested_comprehension() -> None:
 
 
 def demo_tuple() -> None:
+    """Demonstrate tuple operations and characteristics."""
     print("demo_tuple")
     t = 12345, 54321, "hello!"
     print(t)
@@ -100,6 +110,7 @@ def demo_tuple() -> None:
 
 
 def demo_set() -> None:
+    """Demonstrate set operations and methods."""
     print("demo_set")
     # Intentionally showing duplicates to demonstrate set behavior
     basket = {"apple", "orange", "pear", "banana"}  # noqa: B033
@@ -114,3 +125,23 @@ def demo_set() -> None:
     print(a | b)
     print(a & b)
     print(a ^ b)
+
+
+def demo_dict_comprehension() -> None:
+    """Demonstrate dictionary comprehension syntax and usage."""
+    pass
+
+
+def demo_set_comprehension() -> None:
+    """Demonstrate set comprehension syntax and usage."""
+    pass
+
+
+def demo_generator() -> None:
+    """Demonstrate generator functions and expressions."""
+    pass
+
+
+def demo_collections() -> None:
+    """Demonstrate collections module data structures."""
+    pass

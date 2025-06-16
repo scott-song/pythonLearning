@@ -1,6 +1,4 @@
-"""
-Text utilities for the Python Learning project.
-"""
+"""Text utilities for the Python Learning project."""
 
 
 def demo_text() -> None:

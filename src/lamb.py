@@ -1,3 +1,6 @@
+"""Lambda function demonstrations and examples."""
+
+
 def demo_lambda() -> None:
     """Demo function for lambda examples."""
     print("demo_lambda - Lambda function examples")

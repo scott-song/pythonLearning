@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Main entry point for the Python Learning project.
-"""
+"""Main entry point for the Python Learning project."""
 
 import os
 import sys
@@ -20,7 +18,7 @@ load_dotenv()
 
 
 def main() -> None:
-    """Main function to run the application."""
+    """Run the main application."""
     print("Welcome to your Python Learning Project!")
     print("=" * 40)
 
@@ -37,7 +35,7 @@ def main() -> None:
 
 
 def demo_function() -> None:
-    """A demo function to show basic Python functionality."""
+    """Show basic Python functionality."""
     demo_text()
     demo_list()
     demo_flow()

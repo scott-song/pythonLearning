@@ -1,3 +1,5 @@
+"""Control flow demonstrations and examples."""
+
 from enum import Enum
 from typing import List
 
@@ -141,20 +143,27 @@ def http_error(status: int) -> str:
 
 
 class Point:
+    """A 2D point with x and y coordinates."""
+
     def __init__(self, x: float, y: float) -> None:
+        """Initialize a point with x and y coordinates."""
         self.x = x
         self.y = y
 
     def __str__(self) -> str:
+        """Return string representation of the point."""
         return f"({self.x}, {self.y})"
 
     def __add__(self, other: "Point") -> "Point":
+        """Add two points together."""
         return Point(self.x + other.x, self.y + other.y)
 
     def __mul__(self, other: "Point") -> "Point":
+        """Multiply two points element-wise."""
         return Point(self.x * other.x, self.y * other.y)
 
     def __truediv__(self, other: "Point") -> "Point":
+        """Divide two points element-wise."""
         return Point(self.x / other.x, self.y / other.y)
 
     def where_is(self) -> None:
