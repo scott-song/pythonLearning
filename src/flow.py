@@ -59,7 +59,13 @@ def demo_flow_for():
 def demo_flow_range():
     """Demo function for range() usage."""
     print("demo_flow_range")
+    _demo_basic_ranges()
+    _demo_range_with_lists()
+    _demo_break_continue()
 
+
+def _demo_basic_ranges():
+    """Demonstrate basic range usage patterns."""
     # Basic range - from 0 to 4
     print("\nBasic range(5):")
     for i in range(5):
@@ -84,6 +90,9 @@ def demo_flow_range():
         print(i, end=" ")
     print()
 
+
+def _demo_range_with_lists():
+    """Demonstrate range usage with lists."""
     # Converting range to list
     print("\nConverting range to list:")
     numbers = list(range(3, 15, 3))
@@ -94,6 +103,10 @@ def demo_flow_range():
     fruits = ["apple", "banana", "cherry", "date"]
     for i in range(len(fruits)):
         print(f"Index {i}: {fruits[i]}")
+
+
+def _demo_break_continue():
+    """Demonstrate break and continue in loops."""
     # for break
     for n in range(2, 10):
         for x in range(2, n):
@@ -111,19 +124,19 @@ def demo_flow_range():
         print(f"{n} is odd")
 
 
-# match test
+# HTTP error handling with if-elif
 def http_error(status):
-    match status:
-        case 400:
-            return "bad request"
-        case 400:
-            return "not found"
-        case 418:
-            return "I'm a teapot"
-        case 401 | 403 | 404:
-            return "not allowed"
-        case _:
-            return "something's wrong with the internet"
+    """Handle HTTP error status codes."""
+    if status == 400:
+        return "bad request"
+    elif status == 404:
+        return "not found"
+    elif status == 418:
+        return "I'm a teapot"
+    elif status in (401, 403):
+        return "not allowed"
+    else:
+        return "something's wrong with the internet"
 
 
 class Point:
@@ -144,19 +157,17 @@ class Point:
         return Point(self.x / other.x, self.y / other.y)
 
     def where_is(self):
-        match self:
-            case Point(x=0, y=0):
-                print("origin")
-            case Point(x=0, y=y):
-                print(f"Y={y}")
-            case Point(x=x, y=0):
-                print(f"X={x}")
-            case Point(x=x, y=y) if x == y:
-                print(f"X={x}, Y={y} is on the line x=y")
-            case Point(x=x, y=y):
-                print(f"X={x}, Y={y}")
-            case _:
-                raise ValueError("Not a point!!")
+        """Determine where the point is located."""
+        if self.x == 0 and self.y == 0:
+            print("origin")
+        elif self.x == 0:
+            print(f"Y={self.y}")
+        elif self.y == 0:
+            print(f"X={self.x}")
+        elif self.x == self.y:
+            print(f"X={self.x}, Y={self.y} is on the line x=y")
+        else:
+            print(f"X={self.x}, Y={self.y}")
 
 
 class Color(Enum):
