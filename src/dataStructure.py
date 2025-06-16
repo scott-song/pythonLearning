@@ -1,7 +1,7 @@
 from math import pi
 
 
-def demo_data_struct():
+def demo_data_struct() -> None:
     print("demo_data_struct")
     demo_list()
     demo_stack()
@@ -14,7 +14,7 @@ def demo_data_struct():
 
 
 # demo list
-def demo_list():
+def demo_list() -> None:
     print("demo_list")
     fruits = ["orange", "apple", "pear", "banana", "kiwi", "apple", "banan"]
     print(fruits)
