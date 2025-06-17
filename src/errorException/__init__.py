@@ -12,6 +12,16 @@ from .custom_exceptions import demo_custom_exceptions
 from .exception_chaining import demo_exception_chaining
 from .logging_exceptions import demo_logging_exceptions
 
+__all__ = [
+    "demo_error_exception",
+    "demo_basic_exceptions",
+    "demo_custom_exceptions",
+    "demo_exception_chaining",
+    "demo_context_managers",
+    "demo_logging_exceptions",
+    "demo_best_practices",
+]
+
 
 def demo_error_exception() -> None:
     """
@@ -44,15 +54,5 @@ def demo_error_exception() -> None:
     demo_best_practices()
     print("\n" + "=" * 60)
 
-
-__all__ = [
-    "demo_error_exception",
-    "demo_basic_exceptions",
-    "demo_custom_exceptions",
-    "demo_exception_chaining",
-    "demo_context_managers",
-    "demo_logging_exceptions",
-    "demo_best_practices",
-]
 
 __version__ = "1.0.0"

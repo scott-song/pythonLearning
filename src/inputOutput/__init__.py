@@ -1,11 +1,11 @@
 """Input/Output sub-package for Python learning demonstrations."""
 
-from .basic_io import demo_basic_input, demo_string_formatting
-from .cli_operations import demo_command_line_args
-from .file_operations import demo_advanced_io, demo_file_operations
-from .json_operations import demo_json_operations
-from .path_operations import demo_path_operations
-from .utils import create_sample_config, read_config_file, write_log_entry
+from inputOutput.basic_io import demo_basic_input, demo_string_formatting
+from inputOutput.cli_operations import demo_command_line_args
+from inputOutput.file_operations import demo_advanced_io, demo_file_operations
+from inputOutput.json_operations import demo_json_operations
+from inputOutput.path_operations import demo_path_operations
+from inputOutput.utils import create_sample_config, read_config_file, write_log_entry
 
 __version__ = "0.1.0"
 
