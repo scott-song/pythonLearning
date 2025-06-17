@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Auto-reload script for the Python Learning Project.
+
 Watches for file changes and automatically runs the application.
 """
 
@@ -16,11 +17,19 @@ class CodeChangeHandler(FileSystemEventHandler):
     """Handler for file system events."""
 
     def __init__(self) -> None:
+        """Initialize the CodeChangeHandler.
+
+        Sets up initial state for tracking file changes and debouncing.
+        """
         self.last_run = 0.0
         self.debounce_seconds = 1  # Prevent multiple rapid runs
 
     def on_modified(self, event: FileSystemEvent) -> None:
-        """Called when a file is modified."""
+        """Handle file modification event.
+
+        Checks if the event is a file modification and if it's a Python file.
+        If it's a Python file, it runs the application.
+        """
         if event.is_directory:
             return
 
@@ -72,7 +81,10 @@ class CodeChangeHandler(FileSystemEventHandler):
 
 
 def main() -> None:
-    """Main function to start the file watcher."""
+    """Start the file watcher.
+
+    Sets up the file watcher and runs the application once at startup.
+    """
     print("🚀 Starting Python Learning Project Auto-Reload")
     print("👀 Watching for changes in src/ and tests/ directories...")
     print("Press Ctrl+C to stop\n")

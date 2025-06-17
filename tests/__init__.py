@@ -1,3 +1,1 @@
-"""
-Test package for the Python Learning Project.
-"""
+"""Test package for the Python Learning Project."""

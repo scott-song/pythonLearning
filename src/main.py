@@ -6,12 +6,7 @@ import sys
 
 from dotenv import load_dotenv
 
-from dataStructure import demo_data_struct
-from flow import demo_flow
-from function import demo_func
-from lamb import demo_lambda
-from list import demo_list
-from text import demo_text
+from inputOutput import demo_input_output
 
 # Load environment variables
 load_dotenv()
@@ -36,19 +31,10 @@ def main() -> None:
 
 def demo_function() -> None:
     """Show basic Python functionality."""
-    demo_text()
-    demo_list()
-    demo_flow()
-    print("demo_func")
-    demo_func()
-    demo_lambda()
-    demo_data_struct()
+    demo_input_output()
 
 
 if __name__ == "__main__":
     main()
     print(sys.builtin_module_names)
     print(sys.path)
-# test change
-# test change
-# test change
