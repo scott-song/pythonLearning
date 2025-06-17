@@ -7,7 +7,6 @@ import sys
 from dotenv import load_dotenv
 
 from errorException import demo_error_exception
-from inputOutput import demo_input_output
 
 # Load environment variables
 load_dotenv()
@@ -31,19 +30,16 @@ def main() -> None:
 
 
 def demo_function() -> None:
-    """Show basic Python functionality."""
-    demo_input_output()
-
     # Demonstrate exception handling
     print("\n")
     demo_error_exception()
 
 
 if __name__ == "__main__":
-    main()
     print("\n" + "=" * 50)
     print("SYSTEM INFORMATION")
     print("=" * 50)
     print(f"Built-in modules: {len(sys.builtin_module_names)} modules")
     print(f"Python path entries: {len(sys.path)} paths")
     print(f"Python version: {sys.version}")
+    main()

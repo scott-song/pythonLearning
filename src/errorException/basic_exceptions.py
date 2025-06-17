@@ -19,6 +19,7 @@ def demo_basic_exceptions() -> None:
     demo_multiple_exceptions()
     demo_exception_hierarchy()
     demo_raise_exceptions()
+    demo_exception_context()
 
 
 def demo_try_except() -> None:
@@ -28,8 +29,10 @@ def demo_try_except() -> None:
     try:
         result = 10 / 0
         print(f"Result: {result}")
-    except ZeroDivisionError:
-        print("Error: Cannot divide by zero")
+    except ZeroDivisionError as e:
+        print(f"Error: Cannot divide by zero: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
 
     # Catching multiple specific exceptions
     try:
@@ -37,6 +40,8 @@ def demo_try_except() -> None:
         print(f"Value: {value}")
     except ValueError as e:
         print(f"ValueError: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
 
     print()
 
@@ -47,12 +52,14 @@ def demo_try_except_else() -> None:
 
     def safe_divide(a: float, b: float) -> Optional[float]:
         try:
-            return a / b
+            result = a / b  # Store result before returning
         except ZeroDivisionError:
             print("Error: Division by zero")
             return None
         else:
+            # else clause executes when no exception occurs in try block
             print("Division successful")
+            return result
 
     result1 = safe_divide(10, 2)
     print(f"10 / 2 = {result1}")
@@ -126,6 +133,9 @@ def demo_exception_hierarchy() -> None:
     def show_exception_info(exception: Exception) -> None:
         print(f"Exception: {exception}")
         print(f"Type: {type(exception).__name__}")
+        # Print the Method Resolution Order (MRO) - shows inheritance chain
+        # type(exception).__mro__ gets the class hierarchy from most specific to most general
+        # We extract just the class names using a list comprehension
         print(f"MRO: {[cls.__name__ for cls in type(exception).__mro__]}")
         print()
 

@@ -5,12 +5,15 @@ This package contains modules demonstrating various aspects of Python
 exception handling that are essential for real-world projects.
 """
 
-from .basic_exceptions import demo_basic_exceptions
-from .best_practices import demo_best_practices
-from .context_managers import demo_context_managers
-from .custom_exceptions import demo_custom_exceptions
-from .exception_chaining import demo_exception_chaining
-from .logging_exceptions import demo_logging_exceptions
+from errorException.basic_exceptions import demo_basic_exceptions
+from errorException.best_practices import demo_best_practices
+from errorException.context_managers import demo_context_managers
+from errorException.custom_exceptions import (
+    demo_custom_exceptions,
+    demo_retryable_exceptions,
+)
+from errorException.exception_chaining import demo_exception_chaining
+from errorException.logging_exceptions import demo_logging_exceptions
 
 __all__ = [
     "demo_error_exception",
@@ -42,17 +45,20 @@ def demo_error_exception() -> None:
     demo_custom_exceptions()
     print("\n" + "-" * 60 + "\n")
 
-    demo_exception_chaining()
+    demo_retryable_exceptions()
     print("\n" + "-" * 60 + "\n")
 
-    demo_context_managers()
-    print("\n" + "-" * 60 + "\n")
+    # demo_exception_chaining()
+    # print("\n" + "-" * 60 + "\n")
 
-    demo_logging_exceptions()
-    print("\n" + "-" * 60 + "\n")
+    # demo_context_managers()
+    # print("\n" + "-" * 60 + "\n")
 
-    demo_best_practices()
-    print("\n" + "=" * 60)
+    # demo_logging_exceptions()
+    # print("\n" + "-" * 60 + "\n")
+
+    # demo_best_practices()
+    # print("\n" + "=" * 60)
 
 
 __version__ = "1.0.0"

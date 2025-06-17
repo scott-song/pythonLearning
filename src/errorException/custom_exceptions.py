@@ -5,7 +5,7 @@ This module shows how to create custom exception classes with proper
 inheritance, attributes, and best practices for real-world applications.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any, Callable, Dict, Optional
 
 
 class BusinessLogicError(Exception):
@@ -261,6 +261,14 @@ def demo_exception_with_context() -> None:
 
 
 def demo_exception_chaining() -> None:
+    """Demonstrate exception chaining with custom exceptions.
+
+    This function shows how to properly chain exceptions in Python using the 'raise from'
+    syntax. It demonstrates a real-world scenario where low-level exceptions (like ValueError)
+    are caught and re-raised as more specific business exceptions (ValidationError), while
+    preserving the original cause. This creates a clear exception hierarchy that helps with
+    debugging by showing both the high-level business error and the underlying technical cause.
+    """
     """Demonstrate exception chaining with custom exceptions."""
     print("4. Exception chaining:")
 
@@ -303,6 +311,7 @@ def demo_retryable_exceptions() -> None:
     print("5. Retryable exceptions:")
 
     import random
+    import time
 
     def unreliable_service() -> str:
         if random.random() < 0.7:  # 70% chance of failure
@@ -313,16 +322,32 @@ def demo_retryable_exceptions() -> None:
             )
         return "Service response: Success!"
 
-    def call_with_retry(func, max_attempts: int = 3):
+    def _handle_retry_error(e: RetryableError, attempt: int) -> None:
+        """Handle retry error logic."""
+        print(f"Attempt {attempt} failed: {e}")
+        if attempt >= e.max_retries:
+            print("Max retries exceeded")
+            raise
+        print(f"Retrying in {e.retry_after} seconds...")
+        if e.retry_after:
+            time.sleep(e.retry_after)
+
+    def call_with_retry(func: Callable[[], str], max_attempts: int = 3) -> str:
+        """Call a function with automatic retry on RetryableError.
+
+        Args:
+            func: The function to call that may raise RetryableError
+            max_attempts: Maximum number of retry attempts (default: 3)
+
+        Returns:
+            str: The string result from the function call, or empty string if all retries fail
+        """
         for attempt in range(1, max_attempts + 1):
             try:
-                return func()
+                return str(func())
             except RetryableError as e:
-                print(f"Attempt {attempt} failed: {e}")
-                if attempt >= e.max_retries:
-                    print("Max retries exceeded")
-                    raise
-                print(f"Retrying in {e.retry_after} seconds...")
+                _handle_retry_error(e, attempt)
+        return ""
 
     try:
         result = call_with_retry(unreliable_service)
@@ -331,7 +356,3 @@ def demo_retryable_exceptions() -> None:
         print(f"Final failure: {e}")
 
     print()
-
-
-if __name__ == "__main__":
-    demo_custom_exceptions()
