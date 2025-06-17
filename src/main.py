@@ -6,6 +6,7 @@ import sys
 
 from dotenv import load_dotenv
 
+from classes import demo_classes
 from errorException import demo_error_exception
 
 # Load environment variables
@@ -30,9 +31,12 @@ def main() -> None:
 
 
 def demo_function() -> None:
+    """Demonstrate various Python features."""
     # Demonstrate exception handling
-    print("\n")
     demo_error_exception()
+
+    # Demonstrate class features
+    demo_classes()
 
 
 if __name__ == "__main__":
