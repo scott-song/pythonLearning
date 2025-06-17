@@ -4,10 +4,14 @@
   "python.formatting.blackArgs": ["--line-length=88"],
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--config=.flake8", "--ignore=I100,I201,I202"],
+  "python.linting.flake8Args": [
+    "--ignore=I100,I201,I202,D200,D401,D105,D107",
+    "--max-line-length=88"
+  ],
   "python.linting.lintOnSave": true,
   "python.linting.maxNumberOfProblems": 100,
   "python.linting.mypyEnabled": true,
+  "python.linting.ignorePatterns": [],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
