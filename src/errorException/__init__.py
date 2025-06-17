@@ -48,17 +48,18 @@ def demo_error_exception() -> None:
     demo_retryable_exceptions()
     print("\n" + "-" * 60 + "\n")
 
-    # demo_exception_chaining()
-    # print("\n" + "-" * 60 + "\n")
 
-    # demo_context_managers()
-    # print("\n" + "-" * 60 + "\n")
+# demo_exception_chaining()
+# print("\n" + "-" * 60 + "\n")
 
-    # demo_logging_exceptions()
-    # print("\n" + "-" * 60 + "\n")
+# demo_context_managers()
+# print("\n" + "-" * 60 + "\n")
 
-    # demo_best_practices()
-    # print("\n" + "=" * 60)
+# demo_logging_exceptions()
+# print("\n" + "-" * 60 + "\n")
+
+# demo_best_practices()
+# print("\n" + "=" * 60)
 
 
 __version__ = "1.0.0"

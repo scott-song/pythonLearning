@@ -61,7 +61,7 @@ def demo_basic_chaining() -> None:
     """Demonstrate basic exception chaining with 'from' keyword."""
     print("=== BASIC EXCEPTION CHAINING ===")
 
-    def parse_config_value(value: str, field_name: str) -> int:
+    def parse_config_value(value: str) -> int:
         """Convert string to int with chained exceptions."""
         try:
             return int(value)
