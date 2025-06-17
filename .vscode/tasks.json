@@ -16,7 +16,7 @@
         "clear": false
       },
       "runOptions": {
-        "runOn": "fileSave"
+        "runOn": "folderOpen"
       },
       "problemMatcher": {
         "owner": "flake8",
