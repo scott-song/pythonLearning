@@ -7,6 +7,8 @@ def demo_command_line_args() -> None:
     """Demonstrate command line argument handling."""
     print("\n--- Command Line Arguments ---")
 
+    # Print the name of the script (first argument in sys.argv)
+    # sys.argv[0] contains the script name if arguments exist, otherwise use 'N/A'
     print(f"Script name: {sys.argv[0] if sys.argv else 'N/A'}")
     print(f"Number of arguments: {len(sys.argv) - 1}")
     print(f"Arguments: {sys.argv[1:] if len(sys.argv) > 1 else 'None'}")

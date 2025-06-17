@@ -1,101 +1,124 @@
-"""File operations and advanced I/O demonstrations."""
+"""File operations and I/O handling."""
 
-import os
+import json
+import tempfile
+from pathlib import Path
 
 
 def demo_file_operations() -> None:
-    """Demonstrate file reading and writing operations."""
-    print("\n--- File Operations ---")
+    """Demonstrate file operations with proper error handling."""
+    print("File Operations Demo")
+    print("-" * 20)
 
-    # Create a sample file
-    sample_file = "demo_file.txt"
-    sample_content = [
-        "Hello, World!\n",
-        "This is a demo file.\n",
-        "Python I/O is powerful.\n",
-    ]
+    # Create a temporary file for demo
+    with tempfile.NamedTemporaryFile(
+        mode="w", delete=False, suffix=".txt"
+    ) as temp_file:
+        temp_path = Path(temp_file.name)
+        temp_file.write("Hello, World!\nThis is a test file.\n")
 
     try:
-        # Writing to file
-        print(f"Writing to {sample_file}")
-        with open(sample_file, "w", encoding="utf-8") as file:
-            file.writelines(sample_content)
-
-        # Reading entire file
-        print("Reading entire file:")
-        with open(sample_file, "r", encoding="utf-8") as file:
+        # Reading file
+        print(f"Reading from: {temp_path}")
+        with open(temp_path, "r") as file:
             content = file.read()
-            print(repr(content))
+            print(f"Content: {repr(content)}")
 
-        # Reading line by line
-        print("Reading line by line:")
-        with open(sample_file, "r", encoding="utf-8") as file:
-            for line_num, line in enumerate(file, 1):
-                print(f"Line {line_num}: {line.strip()}")
+        # Writing to file
+        with open(temp_path, "a") as file:
+            file.write("Additional line.\n")
 
-        # Appending to file
-        print("Appending to file")
-        with open(sample_file, "a", encoding="utf-8") as file:
-            file.write("This line was appended.\n")
+        # Reading lines
+        with open(temp_path, "r") as file:
+            lines = file.readlines()
+            print(f"Lines: {lines}")
 
-        # Reading after append
-        print("Content after append:")
-        with open(sample_file, "r", encoding="utf-8") as file:
-            print(file.read())
+        # JSON operations
+        json_data = {"name": "Alice", "age": 30, "city": "New York"}
+        json_path = temp_path.with_suffix(".json")
+
+        with open(json_path, "w") as file:
+            json.dump(json_data, file, indent=2)
+
+        with open(json_path, "r") as file:
+            loaded_data = json.load(file)
+            print(f"JSON data: {loaded_data}")
+
+        # Clean up
+        temp_path.unlink()
+        json_path.unlink()
 
     except FileNotFoundError:
-        print(f"File {sample_file} not found!")
+        print("File not found!")
     except PermissionError:
-        print(f"Permission denied to access {sample_file}")
-    finally:
+        print("Permission denied!")
+    except json.JSONDecodeError as e:
+        print(f"JSON decode error: {e}")
+
+
+def demo_directory_operations() -> None:
+    """Demonstrate directory operations."""
+    print("\nDirectory Operations Demo")
+    print("-" * 25)
+
+    # Create temporary directory
+    temp_dir = Path(tempfile.mkdtemp())
+    print(f"Created temporary directory: {temp_dir}")
+
+    try:
+        # Create subdirectories
+        sub_dir = temp_dir / "subdir"
+        sub_dir.mkdir()
+        print(f"Created subdirectory: {sub_dir}")
+
+        # Create files in directory
+        for i in range(3):
+            file_path = temp_dir / f"file_{i}.txt"
+            with open(file_path, "w") as file:
+                file.write(f"Content of file {i}")
+
+                # List directory contents
+        print("Directory contents:")
+        for item in temp_dir.iterdir():
+            if item.is_file():
+                print(f"  File: {item.name} (size: {item.stat().st_size} bytes)")
+            elif item.is_dir():
+                print(f"  Directory: {item.name}")
+
         # Clean up
-        if os.path.exists(sample_file):
-            os.remove(sample_file)
-            print(f"Cleaned up {sample_file}")
+        import shutil
+
+        shutil.rmtree(temp_dir)
+        print("Cleaned up temporary directory")
+
+    except OSError as e:
+        print(f"OS error: {e}")
 
 
-def demo_advanced_io() -> None:
-    """Demonstrate advanced I/O operations."""
-    print("\n--- Advanced I/O Operations ---")
+def demo_path_operations() -> None:
+    """Demonstrate Path operations."""
+    print("\nPath Operations Demo")
+    print("-" * 20)
 
-    # Binary file operations
-    print("Binary file operations:")
-    binary_data = b"Hello, binary world!"
-    binary_file = "demo_binary.bin"
+    # Path construction
+    current_path = Path.cwd()
+    print(f"Current directory: {current_path}")
 
-    try:
-        with open(binary_file, "wb") as file:
-            file.write(binary_data)
+    file_path = current_path / "example.txt"
+    print(f"File path: {file_path}")
 
-        with open(binary_file, "rb") as file:
-            read_data = file.read()
-            print(f"Read binary data: {read_data!r}")
-    finally:
-        if os.path.exists(binary_file):
-            os.remove(binary_file)
+    # Path properties
+    print(f"Path parts: {file_path.parts}")
+    print(f"Parent: {file_path.parent}")
+    print(f"Name: {file_path.name}")
+    print(f"Stem: {file_path.stem}")
+    print(f"Suffix: {file_path.suffix}")
 
-    # CSV-like operations (manual)
-    print("\nCSV-like operations:")
-    csv_data = [
-        ["Name", "Age", "City"],
-        ["Alice", "25", "Boston"],
-        ["Bob", "30", "Chicago"],
-        ["Charlie", "35", "Denver"],
-    ]
+    # Path checks
+    print(f"Exists: {file_path.exists()}")
+    print(f"Is file: {file_path.is_file()}")
+    print(f"Is directory: {file_path.is_dir()}")
 
-    csv_file = "demo_data.csv"
-    try:
-        with open(csv_file, "w", encoding="utf-8") as file:
-            for row in csv_data:
-                file.write(",".join(row) + "\n")
-
-        print(f"CSV data written to {csv_file}")
-
-        with open(csv_file, "r", encoding="utf-8") as file:
-            print("Reading CSV data:")
-            for line_num, line in enumerate(file, 1):
-                columns = line.strip().split(",")
-                print(f"  Row {line_num}: {columns}")
-    finally:
-        if os.path.exists(csv_file):
-            os.remove(csv_file)
+    # Absolute path
+    abs_path = file_path.resolve()
+    print(f"Absolute path: {abs_path}")

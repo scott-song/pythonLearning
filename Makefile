@@ -19,11 +19,11 @@ install: venv
 
 # Run main application
 run:
-	$(PYTHON) src/main.py
+	$(PYTHON) src/main.py --verbose
 
 # Watch for changes and auto-run
 watch:
-	$(PYTHON) scripts/watch.py
+	$(PYTHON) scripts/watch.py --verbose
 
 # Run tests
 test:

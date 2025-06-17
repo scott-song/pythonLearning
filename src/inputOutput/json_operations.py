@@ -18,6 +18,9 @@ def demo_json_operations() -> None:
     }
 
     # Convert to JSON string
+    # json.dumps() converts Python object to JSON string
+    # indent=2 adds 2 spaces of indentation to make the output more readable
+    # Without indent, the JSON would be a single line
     json_string = json.dumps(data, indent=2)
     print("Python dict to JSON string:")
     print(json_string)
