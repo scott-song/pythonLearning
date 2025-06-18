@@ -37,14 +37,14 @@ def demo_function() -> None:
     demo_error_exception()
 
     # Demonstrate class features
-    demo_classes()
+    # demo_classes()
 
     # Demonstrate concurrency features
     demo_concurrency()
 
 
 if __name__ == "__main__":
-    print("\n" + "=" * 50)
+    print("\n" + "=" * 80)
     print("SYSTEM INFORMATION")
     print("=" * 50)
     print(f"Built-in modules: {len(sys.builtin_module_names)} modules")

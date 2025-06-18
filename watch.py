@@ -82,8 +82,12 @@ def main() -> None:
 
     Sets up the file watcher and runs the application once at startup.
     """
-    path = "."
+    # Run the application once at startup
     event_handler = CodeChangeHandler()
+    print("🚀 Running application at startup...")
+    event_handler.run_application()
+
+    path = "."
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
     observer.start()

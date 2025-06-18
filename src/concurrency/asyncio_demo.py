@@ -183,16 +183,16 @@ async def demo_basic_async() -> None:
 
     # Sequential execution
     start_time = time.time()
-    result1 = await simple_coroutine("A", 0.5)
-    result2 = await simple_coroutine("B", 0.3)
-    result3 = await simple_coroutine("C", 0.4)
+    await simple_coroutine("A", 0.5)
+    await simple_coroutine("B", 0.3)
+    await simple_coroutine("C", 0.4)
     sequential_time = time.time() - start_time
 
     print(f"Sequential execution took: {sequential_time:.2f}s")
 
     # Concurrent execution
     start_time = time.time()
-    results = await asyncio.gather(
+    await asyncio.gather(
         simple_coroutine("X", 0.5),
         simple_coroutine("Y", 0.3),
         simple_coroutine("Z", 0.4),
@@ -348,9 +348,9 @@ async def demo_error_handling() -> None:
 
     for i, result in enumerate(results):
         if isinstance(result, Exception):
-            print(f"Task {i+1} failed: {result}")
+            print(f"Task {i + 1} failed: {result}")
         else:
-            print(f"Task {i+1} succeeded: {result}")
+            print(f"Task {i + 1} succeeded: {result}")
 
     # Timeout handling
     try:

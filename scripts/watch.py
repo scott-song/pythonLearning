@@ -48,11 +48,13 @@ class CodeChangeHandler(FileSystemEventHandler):
     def run_application(self) -> None:
         """Run the main application."""
         print("\n" + "=" * 50)
-        print("🔄 File changed! Running application...")
+        print("🔄 File changed! Running application.............................")
         print("=" * 50)
 
         try:
             # Run the main application
+
+            print("run src/main.py")
             result = subprocess.run(
                 [sys.executable, "src/main.py"],
                 capture_output=True,
@@ -81,6 +83,7 @@ class CodeChangeHandler(FileSystemEventHandler):
 
 
 def main() -> None:
+    print("run src/main.py")
     """Start the file watcher.
 
     Sets up the file watcher and runs the application once at startup.

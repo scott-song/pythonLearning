@@ -48,28 +48,14 @@ def fibonacci(n: int) -> int:
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-class ProcessCounter:
-    """Shared counter using multiprocessing."""
-
-    def __init__(self) -> None:
-        """Initialize shared counter."""
-        self.manager = mp.Manager()
-        self.value = self.manager.Value("i", 0)
-        self.lock = self.manager.Lock()
-
-    def increment(self, times: int, process_name: str) -> None:
-        """Increment counter multiple times."""
-        for _ in range(times):
-            with self.lock:
-                current = self.value.value
-                time.sleep(0.001)  # Simulate work
-                self.value.value = current + 1
-        print(f"Process {process_name} finished incrementing")
-
-    def get_value(self) -> int:
-        """Get current counter value."""
-        with self.lock:
-            return self.value.value
+def increment_shared_counter(shared_value, lock, times: int, process_name: str) -> None:
+    """Increment shared counter multiple times."""
+    for _ in range(times):
+        with lock:
+            current = shared_value.value
+            time.sleep(0.001)  # Simulate work
+            shared_value.value = current + 1
+    print(f"Process {process_name} finished incrementing")
 
 
 def producer_process(queue: mp.Queue, name: str, items: int) -> None:
@@ -122,12 +108,19 @@ def demo_multiprocessing() -> None:
     print("MULTIPROCESSING DEMONSTRATION")
     print("=" * 50)
 
-    demo_basic_processes()
-    demo_process_communication()
-    demo_process_pools()
-    demo_shared_memory()
-    demo_cpu_bound_comparison()
-    demo_pipe_communication()
+    try:
+        demo_basic_processes()
+        demo_process_communication()
+        demo_process_pools()
+        demo_shared_memory()
+        demo_cpu_bound_comparison()
+        demo_pipe_communication()
+    except Exception as e:
+        print(f"Multiprocessing demonstration encountered an error: {e}")
+        print(
+            "This is often due to pickling issues when running from imported modules."
+        )
+        print("For full multiprocessing functionality, run the module directly.")
 
 
 def demo_basic_processes() -> None:
@@ -227,12 +220,17 @@ def demo_shared_memory() -> None:
     print("\n4. Shared Memory and Synchronization:")
     print("-" * 37)
 
-    counter = ProcessCounter()
+    # Create shared memory objects
+    manager = mp.Manager()
+    shared_value = manager.Value("i", 0)
+    lock = manager.Lock()
     processes = []
 
     # Create processes that increment the shared counter
     for i in range(4):
-        process = mp.Process(target=counter.increment, args=(25, f"P{i}"))
+        process = mp.Process(
+            target=increment_shared_counter, args=(shared_value, lock, 25, f"P{i}")
+        )
         processes.append(process)
         process.start()
 
@@ -240,7 +238,7 @@ def demo_shared_memory() -> None:
     for process in processes:
         process.join()
 
-    final_value = counter.get_value()
+    final_value = shared_value.value
     print(f"Final counter value: {final_value}")
     print("Expected: 100")
 

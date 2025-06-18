@@ -238,7 +238,7 @@ def demo_thread_safe_counter() -> None:
     threads = []
 
     def increment_counter(name: str, times: int) -> None:
-        for i in range(times):
+        for _ in range(times):
             counter.increment()
         print(f"{name} finished incrementing")
 
@@ -364,9 +364,11 @@ def demo_daemon_threads() -> None:
     print("-" * 16)
 
     def daemon_worker() -> None:
-        while True:
-            print("Daemon thread working...")
-            time.sleep(1)
+        # Run for a limited time to demonstrate daemon behavior
+        for i in range(5):
+            print(f"Daemon thread working... ({i+1}/5)")
+            time.sleep(0.5)
+        print("Daemon thread finished normally")
 
     def regular_worker() -> None:
         for i in range(3):

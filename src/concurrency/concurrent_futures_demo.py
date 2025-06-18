@@ -93,7 +93,8 @@ def demo_thread_pool_executor() -> None:
 
     # Sequential execution
     start_time = time.time()
-    sequential_results = [io_bound_task(task_id, delay) for task_id, delay in tasks]
+    for task_id, delay in tasks:
+        io_bound_task(task_id, delay)
     sequential_time = time.time() - start_time
 
     print(f"Sequential execution time: {sequential_time:.2f}s")
@@ -104,7 +105,8 @@ def demo_thread_pool_executor() -> None:
         futures = [
             executor.submit(io_bound_task, task_id, delay) for task_id, delay in tasks
         ]
-        concurrent_results = [future.result() for future in futures]
+        for future in futures:
+            future.result()
 
     concurrent_time = time.time() - start_time
 
@@ -192,9 +194,9 @@ def demo_exception_handling() -> None:
         for i, future in enumerate(futures):
             try:
                 result = future.result()
-                print(f"Task {i+1}: {result}")
+                print(f"Task {i + 1}: {result}")
             except Exception as e:
-                print(f"Task {i+1}: Error - {e}")
+                print(f"Task {i + 1}: Error - {e}")
 
 
 def demo_timeout_handling() -> None:
@@ -212,9 +214,9 @@ def demo_timeout_handling() -> None:
         for i, future in enumerate(futures):
             try:
                 task_id, result = future.result(timeout=1.0)  # 1 second timeout
-                print(f"Task {i+1}: {result}")
+                print(f"Task {i + 1}: {result}")
             except concurrent.futures.TimeoutError:
-                print(f"Task {i+1}: Timed out after 1 second")
+                print(f"Task {i + 1}: Timed out after 1 second")
                 future.cancel()  # Try to cancel (may not work if already running)
 
 
