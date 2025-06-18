@@ -129,7 +129,7 @@ def demo_basic_dataclasses() -> None:
 
     # Automatic comparison
     alice2 = Person("Alice", 30, "alice@example.com")
-    print(f"alice == alice2: {alice == alice2}")
+    print(f"alice == alice22: {alice == alice2}")
 
     # Point dataclass
     p1 = Point(3.0, 4.0)
