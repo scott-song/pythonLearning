@@ -7,6 +7,7 @@ import sys
 from dotenv import load_dotenv
 
 from classes import demo_classes
+from concurrency import demo_concurrency
 from errorException import demo_error_exception
 
 # Load environment variables
@@ -37,6 +38,9 @@ def demo_function() -> None:
 
     # Demonstrate class features
     demo_classes()
+
+    # Demonstrate concurrency features
+    demo_concurrency()
 
 
 if __name__ == "__main__":
