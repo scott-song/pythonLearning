@@ -30,6 +30,21 @@ Python through hands-on examples and real-world patterns.
 
 ## 🛠️ Setup
 
+### Quick Setup with Makefile (Recommended)
+
+```bash
+# Clone and navigate to the project
+git clone <repository-url>
+cd pythonLearning
+
+# Complete setup in one command
+make dev
+```
+
+This will create a virtual environment, install dependencies, format code, and run tests.
+
+### Manual Setup
+
 1. **Clone and navigate to the project:**
 
    ```bash
@@ -67,7 +82,45 @@ Python through hands-on examples and real-world patterns.
 
 ## 🎯 Usage
 
-### Run the Main Application
+### Quick Start with Makefile
+
+The project includes a Makefile with convenient commands:
+
+```bash
+# Show all available commands
+make help
+
+# Complete development setup (create venv, install deps, format, test)
+make dev
+
+# Run the main application
+make run
+
+# Run with file watching for development
+make watch
+
+# Run tests
+make test
+
+# Format code
+make format
+
+# Check code style
+make lint
+
+# Type checking
+make typecheck
+
+# Format markdown files
+make format-md
+
+# Clean up generated files
+make clean
+```
+
+### Manual Usage
+
+#### Run the Main Application
 
 ```bash
 python src/main.py
@@ -79,7 +132,7 @@ This will execute all learning demonstrations in sequence:
 - Concurrency examples
 - Object-oriented programming concepts
 
-### Development with Auto-reload
+#### Development with Auto-reload
 
 For development with automatic file watching and reloading:
 
@@ -93,7 +146,7 @@ This will:
 - Watch for file changes
 - Automatically re-run the application when files are modified
 
-### Run Specific Modules
+#### Run Specific Modules
 
 You can also run individual demonstration modules:
 
@@ -164,6 +217,15 @@ pythonLearning/
 
 ## 🧪 Testing
 
+### Using Makefile
+
+```bash
+# Run all tests
+make test
+```
+
+### Manual Testing
+
 Run tests using pytest:
 
 ```bash
@@ -187,7 +249,29 @@ This project uses several tools to maintain code quality:
 - **MyPy**: Type checking
 - **Pre-commit**: Automated quality checks
 
-Run quality checks manually:
+#### Using Makefile (Recommended)
+
+```bash
+# Format code
+make format
+
+# Check code style
+make lint
+
+# Type check
+make typecheck
+
+# Format markdown files
+make format-md
+
+# Run tests
+make test
+
+# Complete development workflow
+make dev
+```
+
+#### Manual Commands
 
 ```bash
 # Format code
